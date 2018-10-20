@@ -1,6 +1,6 @@
 .pylintrc
 *.pdf
-hw/assignment_1
+hw/assignment_1/
 
 hw/assignment_2
 
