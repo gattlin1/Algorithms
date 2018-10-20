@@ -46,8 +46,7 @@ def dfs(friends, friends_dict, start):
 
 if __name__ == '__main__':
 
-    #matrix_filename = input('Please provide the name of a file that contains a friends matrix:\n')
-    matrix_filename = "./test_files/test1_4_random.txt"
+    matrix_filename = input('Please provide the name of a file that contains a friends matrix:\n')
 
     with open(matrix_filename, 'r') as matrix_file:
         friends = [line.strip() for line in matrix_file.readlines()]
