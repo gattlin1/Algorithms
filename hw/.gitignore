@@ -1,11 +1,8 @@
+#
 .pylintrc
 *.pdf
-hw/assignment_1/
-
-hw/assignment_2
-
-hw/assignment_3
+hw/assignment_1/src/Python/
+*.py 
 
 .vscode/
-launch.json
-settings.json
+*.json
