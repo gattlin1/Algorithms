@@ -14,14 +14,14 @@ def count_friend_circles(friends):
     friends_dict = {0: 'unexplored'}
 
     #gives every person (node) the value 'unexplored'
-    for i in range(len(friends[0])):
+    for i in range(1, len(friends[0])): #start at 1 since we already set the value of 0.
         friends_dict[i] = 'unexplored'
-    
+
     #initialized the groups value to 0. This will be used to return the number of groups in the end
     groups = 0
-    
+
     #iterates through all of the people in the friends dictionary
-    #if the person is unexplored then that is starting a new group 
+    #if the person is unexplored then that is starting a new group
     #because dfs will find the whole group when called.
     for person in friends_dict:
         if friends_dict[person] == 'unexplored':
@@ -37,7 +37,7 @@ Searches the adjacency matrix to see if the starting person has any friends.
 If they do then explore that friend to see if they have any other friends.
 """
 def dfs(friends, friends_dict, start):
-    friends_dict[start] = 'explored' #sets the person to explored 
+    friends_dict[start] = 'explored' #sets the person to explored
     for i in range(len(friends[start])):
         #if they are friends and the person hasn't already been explored then check if that person
         #has any more friends.
@@ -46,7 +46,7 @@ def dfs(friends, friends_dict, start):
 
 if __name__ == '__main__':
 
-    matrix_filename = input('Please provide the name of a file that contains a friends matrix:\n')
+    matrix_filename = input('Please provide a filename containing a friends matrix:\n')
 
     with open(matrix_filename, 'r') as matrix_file:
         friends = [line.strip() for line in matrix_file.readlines()]
