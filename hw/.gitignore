@@ -2,7 +2,6 @@
 .pylintrc
 *.pdf
 hw/assignment_1/src/Python/
-*.py 
 
 .vscode/
 *.json
