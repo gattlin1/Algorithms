@@ -1,5 +1,5 @@
 Friend Circles Problem
-
+----------------------
 There are n students in a class. Some of them are friends, while some are not. Their friendship is transitive in nature, i.e., if A is a friend of B and B is a friend of C, then A is also a friend of C.
 
 A friend circle is a group of students who are directly or indirectly friends. Indirect friendships can require multiple levels of indirection.

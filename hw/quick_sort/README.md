@@ -1,3 +1,3 @@
 QuickSort
-
+------------
 This version of quicksort showcases 3 different variants of quick sort and the efficiency of each. The first just takes the leftmost element in that specific call and uses it as the pivot. The second is median3. Median3 takes the median value of the first, middle, and last element in the call and uses that element as the pivot. Finally is random and that takes a random index value as the pivot. When the program starts it will prompt you to give a text file that has a group of numbers to sort. In this version of text files the number on the first line denotes how many numbers are in the file (thus why we start the quicksort at position 1 instead of 0). Next you are prompted to list your quick sort variant you want to sort the numbers. The valid inputs are first, median3, and random.
