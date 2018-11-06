@@ -11,25 +11,23 @@ instructor: Anthony Clark
 @param:  an dictionary of int key value for the node value and an int tuple
          value pair corresponding to the (node, edge) values
 @return: the shortest path lengths from the user entered starting node.
-
 """
 def dijkstras(data_set):
     starting_vertex = int(input("Please provide a start vertex label (1..n):\n"))
-    path_lengths = [math.inf for values in range(1, len(data_set) + 1)]
-    visited = {}
-    visited[starting_vertex] = True
+    path_lengths = [math.inf for values in range(len(data_set))]
+    visited = {} 
+    visited[starting_vertex] = None
     path_lengths[starting_vertex - 1] = 0
     while len(visited) < len(data_set):
-        parent_node = child_node = -1
-        shortest_path = math.inf
+        next_node = -1
+        next_shortest_path = math.inf
         for node in list(visited):
             for edge in data_set[node]:
-                if edge[0] not in visited and path_lengths[node - 1] + edge[1] < shortest_path:
-                    child_node, shortest_path = edge[0], edge[1]
-                    parent_node = node
-        if parent_node != -1: #precaution in case the values did not change from the instantiation
-            visited[child_node] = True
-            path_lengths[child_node - 1] = path_lengths[parent_node - 1] + shortest_path
+                if edge[0] not in visited and path_lengths[node - 1] + edge[1] < next_shortest_path:
+                    next_node = edge[0]
+                    next_shortest_path = path_lengths[node - 1] + edge[1]
+        visited[next_node] = None
+        path_lengths[next_node - 1] = next_shortest_path
     return path_lengths
 
 if __name__ == '__main__':
@@ -57,7 +55,7 @@ if __name__ == '__main__':
                 i += 1
 
         #add the data to the data_set as a tuple (node, edge) values
-        data_set[tuple_values[0]] = [(tuple_values[j - 1], tuple_values[j]) for j in range(2,len(tuple_values), 2)]
+        data_set[tuple_values[0]] = [(tuple_values[j - 1], tuple_values[j]) for j in range(2, len(tuple_values), 2)]
 
     distance_from_start = dijkstras(data_set)
 
