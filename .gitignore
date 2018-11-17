@@ -1,6 +1,4 @@
-.vscode
-.pdf
-./assignment1/src/Python/
-InsertionSort.py
-MergeSort.py
 .pylintrc
+*.pdf
+.vscode/
+*.json
