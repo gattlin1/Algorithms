@@ -30,36 +30,33 @@ def dijkstras(data_set):
         path_lengths[next_node - 1] = next_shortest_path
     return path_lengths
 
+"""
+@param1: a dictionary containing the node as the key and a list of all 
+         the node edge pairs in the form of tuples ex 1: [(2,1), (3,2)] etc...
+@param2: a node used to append to the graph
+@param3: a node used to append to the graph
+@param4: the edge value connecting param2 and param3
+helper function to add an edge 
+"""
+def add_edge(G, node, connecting_node, edge):
+    if node in G:
+        G[node].append((connecting_node, edge))
+    else:
+        G[node] = [(connecting_node, edge)]
+
 if __name__ == '__main__':
     data_set = {}
     filename = input('Please provide a filename containing an adjacency list:\n')
     with open(filename, 'r') as file:
-        graph = [line.strip() for line in file.readlines()]
-
-    #iterates through each node in the graph and then stores the numbers that
-    #it finds into tuple_values.
-    for node in graph:
-        tuple_values = [] #the first value will always be the node for the data_set
-        i = 0
-
-        #whenever there is a digit at the i'th character, create a temporary variable to
-        #store that full number. then store it to an array as an integer.
-        while i < len(node):
-            if node[i].isdigit():
-                temp_value = ''
-                while i < len(node) and node[i].isdigit():
-                    temp_value += node[i]
-                    i += 1
-                tuple_values.append(int(temp_value))
-            else:
-                i += 1
-
-        #add the data to the data_set as a tuple (node, edge) values
-        data_set[tuple_values[0]] = [(tuple_values[j - 1], tuple_values[j]) for j in range(2, len(tuple_values), 2)]
+        for line in file:
+            values = line.split()
+            starting_node = int(values[0])
+            for v in values[1:]:
+                connecting_node, edge = tuple(int(x) for x in v.split(','))
+                add_edge(data_set, starting_node, connecting_node, edge)
 
     distance_from_start = dijkstras(data_set)
 
-    #converts the array into a string of values separated by a ','
     values = ''
     for i in range(len(distance_from_start) - 1):
         values += str(distance_from_start[i]) + ','
