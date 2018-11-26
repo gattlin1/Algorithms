@@ -45,10 +45,10 @@ def prims(G, starting_vertex):
 
         #checks all of the node's edges that are in connected 
         for node in connected:
-            for edges in G[node]:
-                if edges[1] < shortest_edge and edges[0] not in connected:
-                    shortest_edge = edges[1]
-                    closest_node = edges[0]
+            for node_edge_pair in G[node]:
+                if node_edge_pair[1] < shortest_edge and node_edge_pair[0] not in connected:
+                    shortest_edge = node_edge_pair[1]
+                    closest_node = node_edge_pair[0]
         
         #add the shortest edge value to the total length and add that corresponding
         #node to the connected list.
@@ -65,9 +65,9 @@ if __name__ == '__main__':
     G = {}
     with open(input_filename, 'r') as input_graph_file:
         n, m = tuple(int(x) for x in input_graph_file.readline().split())
-        G = {}
         for line in input_graph_file:
             v1, v2, ce = tuple(int(v) for v in line.split())
             add_edge(G, v1, v2, ce)
 
     print(prims(G, input_vertex))
+    
