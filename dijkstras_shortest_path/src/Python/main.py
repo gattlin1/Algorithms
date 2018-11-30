@@ -15,8 +15,7 @@ instructor: Anthony Clark
 def dijkstras(data_set):
     starting_vertex = int(input("Please provide a start vertex label (1..n):\n"))
     path_lengths = [math.inf for values in range(len(data_set))]
-    visited = {} 
-    visited[starting_vertex] = None
+    visited = {starting_vertex} 
     path_lengths[starting_vertex - 1] = 0
     while len(visited) < len(data_set):
         next_node = -1
@@ -26,7 +25,7 @@ def dijkstras(data_set):
                 if edge[0] not in visited and path_lengths[node - 1] + edge[1] < next_shortest_path:
                     next_node = edge[0]
                     next_shortest_path = path_lengths[node - 1] + edge[1]
-        visited[next_node] = None
+        visited.add(next_node)
         path_lengths[next_node - 1] = next_shortest_path
     return path_lengths
 

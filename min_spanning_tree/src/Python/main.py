@@ -33,8 +33,7 @@ def add_edge(G, v1, v2, ce):
 """
 def prims(G, starting_vertex):
     total_length = 0 #will return the minimum length needed to connect all nodes
-    connected = {} #nodes that we have already connected
-    connected[starting_vertex] = None #connecting the starting node
+    connected = {starting_vertex} #nodes that we have already connected
 
     #while all the nodes are not connected
     while len(connected) < len(G):
@@ -45,15 +44,15 @@ def prims(G, starting_vertex):
 
         #checks all of the node's edges that are in connected 
         for node in connected:
-            for node_edge_pair in G[node]:
-                if node_edge_pair[1] < shortest_edge and node_edge_pair[0] not in connected:
-                    shortest_edge = node_edge_pair[1]
-                    closest_node = node_edge_pair[0]
+            for candidate_node, edge_cost in G[node]:
+                if edge_cost < shortest_edge and candidate_node not in connected:
+                    shortest_edge = edge_cost
+                    closest_node = candidate_node
         
         #add the shortest edge value to the total length and add that corresponding
         #node to the connected list.
         total_length += shortest_edge
-        connected[closest_node] = None
+        connected.add(closest_node)
     return total_length
 
 
