@@ -7,11 +7,6 @@ class: CSC 325 - Algorithms
 instructor: Anthony Clark
 """
 
-"""
-@param:  an dictionary of int key value for the node value and an int tuple
-         value pair corresponding to the (node, edge) values
-@return: the shortest path lengths from the user entered starting node.
-"""
 def dijkstras(data_set):
     starting_vertex = int(input("Please provide a start vertex label (1..n):\n"))
     path_lengths = [math.inf for values in range(len(data_set))]
@@ -29,14 +24,6 @@ def dijkstras(data_set):
         path_lengths[next_node - 1] = next_shortest_path
     return path_lengths
 
-"""
-@param1: a dictionary containing the node as the key and a list of all 
-         the node edge pairs in the form of tuples ex 1: [(2,1), (3,2)] etc...
-@param2: a node used to append to the graph
-@param3: a node used to append to the graph
-@param4: the edge value connecting param2 and param3
-helper function to add an edge 
-"""
 def add_edge(G, node, connecting_node, edge):
     if node in G:
         G[node].append((connecting_node, edge))
@@ -56,9 +43,4 @@ if __name__ == '__main__':
 
     distance_from_start = dijkstras(data_set)
 
-    values = ''
-    for i in range(len(distance_from_start) - 1):
-        values += str(distance_from_start[i]) + ','
-    values += str(distance_from_start[len(distance_from_start) - 1])
-
-    print(values)
+    print(distance_from_start)
