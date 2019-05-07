@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+author: Gattlin Walker
+email: gattlin1@live.missouristate.edu
+"""
 
 def djb2(arr):
     hashed_array = []
@@ -16,6 +20,6 @@ if __name__ == "__main__":
     for value in unicode_values:
         print("Unicode: ", value, "  Mod 4: ", value % 4)
 
-    for value in djb2(['Hello there!', 'CSC 325', 'Algorithms', 'Data Structures']):
+    for value in djb2(['Hello there!', 'Banana', 'Cheese', 'Data Structures']):
         print("Hash: ", value, "Bucket: ", value % 10)
 

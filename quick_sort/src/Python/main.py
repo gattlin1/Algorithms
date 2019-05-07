@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-
+author: Gattlin Walker
+email: gattlin1@live.missouristate.edu
 """
 import random
 COUNT = 0

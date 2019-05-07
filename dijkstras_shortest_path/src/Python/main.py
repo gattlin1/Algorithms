@@ -3,14 +3,12 @@ import math
 """
 author: Gattlin Walker
 email: gattlin1@live.missouristate.edu
-class: CSC 325 - Algorithms
-instructor: Anthony Clark
 """
 
 def dijkstras(data_set):
     starting_vertex = int(input("Please provide a start vertex label (1..n):\n"))
     path_lengths = [math.inf for values in range(len(data_set))]
-    visited = {starting_vertex} 
+    visited = {starting_vertex}
     path_lengths[starting_vertex - 1] = 0
     while len(visited) < len(data_set):
         next_node = -1

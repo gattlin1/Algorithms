@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 author: Gattlin Walker
-class: CSC 325 - Algorithms
-instructor: Anthony Clark
+email: gattlin1@live.missouristate.edu
 """
 
 def dfs(friends, explored, start):
