@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 """
-This program is used to showcase the performance speeds of different quicksort variants
-Quick Sort First: always takes the first element in the array and then partitions it.
-Quick Sort Median3: takes the median value of the first, middle and last value.
-Quick Sort Random: takes a random index value in the left and right bound as the pivot
+
 """
 import random
-COUNT = 0 
+COUNT = 0
 
 def partition(A, left_index, right_index):
     pivot = A[left_index]
@@ -19,7 +16,7 @@ def partition(A, left_index, right_index):
     A[left_index], A[i - 1] = A[i - 1], A[left_index]
     COUNT += right_index - left_index - 1 #increments for how many times the pivot was tested
     return i - 1
-    
+
 def quick_sort_first(A, left, right):
     if left < right:
         pivot_index = partition(A, left, right)
@@ -60,7 +57,7 @@ def get_median(A, left, right):
 if __name__ == "__main__":
     file_name = input("Please enter a filename:\n")
     quick_sort_variant = input("Please enter a Quicksort variant:\n")
-    
+
     file = open(file_name, 'r')
 
     arr = []
